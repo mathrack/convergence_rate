@@ -127,7 +127,7 @@ When $N$ is large enough, the velocity and pressure fields at the initial time s
 As the flow is statistically steady, the initial and final fields are described by the same probability density function.
 Therefore, the collected statistics will converge towards the exact time-averaged momentum equation at a rate of $\frac{1}{N}$, or $\frac{1}{T}$.
 This convergence rate was obtained without any specific assumption.
-Thus, it does not depends on the geometry or on the Reynolds number, and is valid everywhere inside the computational domain.
+Thus, it does not depends on the geometry or on the Reynolds number, and is valid everywhere inside the computational domain, as long as the initial turbulent flow is fully developped.
 
 %\begin{widetext}
 Hereafter, we focus on the streamwise and spanwise momentum equations which are useful as indicators of the statistical uncertainty in the channel flow.
@@ -244,7 +244,7 @@ The main requirement is that the case studied must be statistically steady.
 The other is that the DNS should rely on a classical combination of implicit and explicit time schemes.
 The presented analysis should also apply to time schemes with a variable time step.
 
-As a side remark, our analysis show that the residuals associated with the global momentum equation depend only on the initial and final fields.
+As a side remark, our analysis shows that the residuals associated with the global momentum equation depend only on the initial and final fields.
 Thus, provided one has kept those fields, one can estimate the error on the averaged momentum equation without using any averaged quantity.
 Indeed, this is of very limited use, except for an efficient on-the-fly estimation of this global error during the simulation.
 
