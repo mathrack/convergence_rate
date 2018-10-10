@@ -12,7 +12,7 @@ from numpy import *
 from pylab import *
 
 # define time step and empty arrays
-dt = 0.027
+dt = 0.027*10
 t = []
 Z_conv = []
 Z_diff = []
@@ -33,10 +33,10 @@ for l in flines:
 plot(t,err_EZ0,'-.',color='g',label=r"${\parallel E_0^Z \parallel}^2$")
 plot(t,Z_conv,'--',color='r',label=r"$Z-Conv$")
 plot(t,Z_diff,'--',color='b',label=r"$Z-Diff$")
-plot([100,1000],[0.0002,0.0002/10],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
-plot([100,1000],[0.00002,0.00002/10/10],'-',color='k')
-text(600,0.00005,r"$T^{-1}$")
-text(400,0.0000002,r"$T^{-2}$")
+plot([1000,10000],[0.0002,0.0002/10],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
+plot([1000,10000],[0.00002,0.00002/10/10],'-',color='k')
+text(6000,0.00005,r"$T^{-1}$")
+text(4000,0.0000002,r"$T^{-2}$")
 
 # Graph settings
 matplotlib.rc('figure', figsize=(5.,4.13))
@@ -52,10 +52,10 @@ matplotlib.rc('font', size=size)
 matplotlib.rc('axes', labelsize=size_label, titlesize=size)
 matplotlib.rc('legend', fontsize=size_legend, framealpha=framealpha)
 #
-axis([10.,dt*210000,0.000000001,0.02])
+axis([100.,dt*210000,0.000000001,0.02])
 xscale('log')
 yscale('log')
-xlabel(r"$T$")
+xlabel(r"$T^+$")
 ylabel(r"Squared residuals")
 legend(bbox_to_anchor=(0.7,0.6),numpoints=1)
 

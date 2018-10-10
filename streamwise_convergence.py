@@ -12,7 +12,7 @@ from numpy import *
 from pylab import *
 
 # define time step and empty arrays
-dt = 0.027
+dt = 0.027*10
 t = []
 err_EX0 = []
 err_ER = []
@@ -37,10 +37,10 @@ for l in flines:
 # Plot
 plot(t,err_EX0,'-.',color='g',label=r"${\parallel E_0^X \parallel}^2$")
 plot(t,err_ER,'--',color='r',label=r"${\parallel E_R \parallel}^2$")
-plot([40,1000],[0.01,0.01*4/100],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
-plot([40,1000],[0.01,0.01*4*4/100/100],'-',color='k')
-text(500,0.001,r"$T^{-1}$")
-text(500,0.0001,r"$T^{-2}$")
+plot([400,10000],[0.01,0.01*4/100],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
+plot([400,10000],[0.01,0.01*4*4/100/100],'-',color='k')
+text(5000,0.001,r"$T^{-1}$")
+text(5000,0.0001,r"$T^{-2}$")
 
 # Graph settings
 matplotlib.rc('figure', figsize=(5.,4.13))
@@ -56,10 +56,10 @@ matplotlib.rc('font', size=size)
 matplotlib.rc('axes', labelsize=size_label, titlesize=size)
 matplotlib.rc('legend', fontsize=size_legend, framealpha=framealpha)
 #
-axis([10.,dt*210000,0.000000001,0.02])
+axis([100.,dt*210000,0.000000001,0.02])
 xscale('log')
 yscale('log')
-xlabel(r"$T$")
+xlabel(r"$T^+$")
 ylabel(r"Squared residuals")
 legend(bbox_to_anchor=(0.75,0.95),numpoints=1)
 
