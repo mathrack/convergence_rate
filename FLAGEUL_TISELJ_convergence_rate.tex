@@ -43,7 +43,7 @@ This methodology was used by Andrade et al. \cite{andrade}.
 Their Figure 6 suggested a residual norm decreasing as $\frac{1}{T}$, with $T$ the averaging time.
 
 However, following Oliver et al. \cite{oliver}, it is known that individual statistical quantities are converging slower, at a rate of $\frac{1}{\sqrt{T}}$.
-This is the expected convergence rate for an uncorrelated signal, and for a weakly correlated one approaching independence at large separations, such as a turbulent signal (Theorem 27.4 in Billingsley \citep{billingsley2008probability}).
+This is the expected convergence rate for an uncorrelated signal, and for a weakly correlated one approaching independence at large separations, such as a turbulent signal (Theorem 27.4 in Billingsley \cite{billingsley2008probability}).
 
 In the present paper, we show that both aforementioned convergence rates hold and are not contradictory.
 This is confirmed by statistics taken from a DNS.
@@ -156,14 +156,14 @@ E_0^X\left(y\right) & = & \frac{\sum_{k=1}^N -\partial_Y \left( \overline{u_X^k 
 E_0^Z\left(y\right) & = & \frac{\sum_{k=1}^N -\partial_Y \left( \overline{u_Z^k u_Y^k} \right)+\frac{1}{Re}\partial_{YY}\left( \overline{u_Z^k} \right)}{N} \nonumber \\
 {\parallel{E_0^i}\parallel}^2 & = & \frac{1}{{Re}_\tau} \int_{y^+=0}^{{Re}_\tau} {E_0^i\left(y^+\right)}^2
 \end{eqnarray}
-Based on this, one can recover the residual error $E_R$, as defined by Andrade et al. \citep{andrade}:
+Based on this, one can recover the residual error $E^i_R$, as defined by Andrade et al. \cite{andrade}:
 \begin{eqnarray}
 \label{definition_ER}
-E_R \left(y^+\right) & = & \int_{l=0}^{y^+} E_0^X\left(l\right)  \\
-{\parallel{E_R}\parallel}^2 & = & \frac{1}{{Re}_\tau} \int_{y^+=0}^{{Re}_\tau} {E_R \left(y^+\right)}^2
+E^i_R \left(y^+\right) & = & \int_{l=0}^{y^+} E_0^i\left(l\right)  \\
+{\parallel{E^i_R}\parallel}^2 & = & \frac{1}{{Re}_\tau} \int_{y^+=0}^{{Re}_\tau} {E^i_R \left(y^+\right)}^2
 \end{eqnarray}
-The residual error $E_U$, also defined by Andrade et al. \citep{andrade}, can be obtained by integrating $E_R$.
-Obviously, $\parallel{E_0^X}\parallel$, $\parallel{E_R}\parallel$ and $\parallel {E_U} \parallel $ should have the same convergence rate.
+The residual error $E^i_U$, also defined by Andrade et al. \cite{andrade}, can be obtained by integrating $E^i_R$.
+Obviously, $\parallel{E_0^i}\parallel$, $\parallel{E^i_R}\parallel$ and $\parallel {E^i_U} \parallel $ should have the same convergence rate.
 
 For the spanwise momentum equation, the global quantity ${\parallel{E_0^Z}\parallel}^2$ is completed by the following individual quantities:
 \begin{eqnarray}
@@ -174,13 +174,13 @@ Z-Diff = \frac{1}{{Re}_\tau} \int_{y^+=0}^{{Re}_\tau} \left( \frac{\sum_{k=1}^N 
 Regarding the conversion towards wall-units, a friction velocity  --- the theoretical one --- can be derived from the constant source term $f$ used in the momentum equation.
 Another friction velocity --- the measured one --- can be derived from the averaged streamwise velocity.
 In the present study, the former is used as it is not plagued by any statistical uncertainty.
-The definition of $E_R$, as given by equation (\ref{definition_ER}), uses an integration constant to enforce $E_R \left( y^+ = 0 \right) = 0$.
-In the present study, we weakly enforce this condition at $y^+=0$ by using an integration constant derived from the theoretical friction velocity, as in Andrade et al. \citep{andrade}.
-This choice, combined with the symmetry of the case at hand, strongly enforces $E_R \left( y^+ = Re_\tau \right) = 0$.
+The definition of $E^i_R$, as given by equation (\ref{definition_ER}), uses an integration constant to enforce $E^i_R \left( y^+ = 0 \right) = 0$.
+In the present study, we weakly enforce this condition at $y^+=0$ by using an integration constant derived from the theoretical friction velocity, as in Andrade et al. \cite{andrade}.
+This choice, combined with the symmetry of the case at hand, strongly enforces $E^i_R \left( y^+ = Re_\tau \right) = 0$.
 
 Hereafter, we present DNS results supporting our analysis.
 For convenience, all quantities plotted are integrated squared residuals.
-Thus, expected convergence rates are also squared and individual quantities are expected to converge at a rate of $\frac{1}{T}$, while global ones such as ${\parallel{E_0^i}\parallel}^2$ and ${\parallel{E_R}\parallel}^2$ are expected to converge at a rate of $\frac{1}{T^2}$.
+Thus, expected convergence rates are also squared and individual quantities are expected to converge at a rate of $\frac{1}{T}$, while global ones such as ${\parallel{E_0^i}\parallel}^2$ and ${\parallel{E^i_R}\parallel}^2$ are expected to converge at a rate of $\frac{1}{T^2}$.
 
 The present DNS was performed with the pseudo-spectral code previously used in Flageul and Tiselj \cite{flageul}.
 The friction Reynolds number is $180$.
@@ -193,10 +193,10 @@ $T^\star = \frac{T u_\tau}{h} ~ \frac{L_X L_Z}{L_{X,min} L_{Z,min}} = 880$, with
 
 \begin{figure}
 \includegraphics[width=0.5\textwidth]{streamwise_convergence.pdf}
-\caption{\label{fig_x}Convergence of global quantities associated with the streamwise momentum as a function of the averaging time. Dotted green line: ${\parallel{E_0^X}\parallel}^2$. Dashed red line: ${\parallel{E_R}\parallel}^2$. Black lines: Convergence rates of $\frac{1}{T}$ and $\frac{1}{T^2}$.}
+\caption{\label{fig_x}Convergence of global quantities associated with the streamwise momentum as a function of the averaging time. Dotted green line: ${\parallel{E_0^X}\parallel}^2$. Dashed red line: ${\parallel{E^X_R}\parallel}^2$. Black lines: Convergence rates of $\frac{1}{T}$ and $\frac{1}{T^2}$.}
 \end{figure}
 
-As shown in Figure \ref{fig_x}, the global quantities ${\parallel{E_0^X}\parallel}^2$ and ${\parallel{E_R}\parallel}^2$ associated with the streamwise momentum equation are converging at the expected rate of $\frac{1}{T^2}$.
+As shown in Figure \ref{fig_x}, the global quantities ${\parallel{E_0^X}\parallel}^2$ and ${\parallel{E^X_R}\parallel}^2$ associated with the streamwise momentum equation are converging at the expected rate of $\frac{1}{T^2}$.
 
 \begin{figure}
 \includegraphics[width=0.5\textwidth]{spanwise_convergence.pdf}
@@ -208,15 +208,26 @@ As shown in Figure \ref{fig_z}, the squared residuals associated with individual
 For the sake of completeness, regressions were performed to extract the convergence rate of the quantities plotted in Figures \ref{fig_x} and \ref{fig_z}.
 The regression was restricted to averaging times longer than $10^4$ time steps -- $2700$ time units -- to limit transient effects.
 Table \ref{tab_conv_rate} shows that the convergence rate of global quantities is very close to the theoretical prediction.
-One can also notice that the individual quantities are converging slightly faster than expected from the analyses of Oliver et al. \citep{oliver}.
+Table \ref{tab_conv_rate_2} shows that the individual quantities are converging slightly faster than expected (Oliver et al. \cite{oliver}, Billingsley \cite{billingsley2008probability}).
 
 \begin{table}
-\caption{\label{tab_conv_rate}Convergence rate for individual and global quantities, averaging time $T^+>2700$.}
+\caption{\label{tab_conv_rate}Convergence rate for global quantities, averaging time $T^+>2700$.}
 \begin{ruledtabular}
 \begin{tabular}{rcccc}
- & ${\parallel{E_0^X}\parallel}^2$ & ${\parallel{E_0^Z}\parallel}^2$ & $Z-Conv$ & $Z-diff$ \\
+ & ${\parallel{E_0^X}\parallel}^2$ & ${\parallel{E_0^Z}\parallel}^2$ & ${\parallel{E_R^X}\parallel}^2$ & ${\parallel{E_R^Z}\parallel}^2$ \\
 \hline
-Convergence Rate & $T^{-2.0002}$ & $T^{-2.0016}$ & $T^{-1.3302}$ & $T^{-1.1340}$ \\
+Convergence Rate & $T^{-2.0002}$ & $T^{-2.0016}$ & $T^{-2.1122}$ & $T^{-2.todo}$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{table}
+\caption{\label{tab_conv_rate_2}Convergence rate for individual quantities, averaging time $T^+>2700$.}
+\begin{ruledtabular}
+\begin{tabular}{rcccc}
+ & $Z-Conv$ & $Z-diff$ \\
+\hline
+Convergence Rate & $T^{-1.3302}$ & $T^{-1.1340}$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
@@ -225,6 +236,7 @@ The authors have presented an original analysis showing that different quantitie
 Overall, individual quantities are expected to converge at a rate of $\frac{1}{\sqrt{T}}$.
 However, a few global quantities, directly related to the integral equations solved are converging faster, at a rate of $\frac{1}{T}$.
 The only global quantities the authors could identify are the ones directly derived from the conservation equations solved, as expressed equation (\ref{qdm_sum_t}).
+
 One could try to multiply equation (\ref{qdm}) by $\left( u_i^{n+1}+u_i^n \right)$ to obtain an equation for the kinetic energy as a global quantity.
 However, summation over time steps no longer leads to simplification.
 Thus, it seems that no other global quantity converging at a rate of $\frac{1}{T}$ can be derived on this ground, except linear transformations of the previous ones.
@@ -242,7 +254,7 @@ Indeed, this is of very limited use, except for an efficient on-the-fly estimati
 
 A potentially interesting error estimator regarding individual statistical quantities for cases with symmetry or invariance under rotation could be derived from the lack of symmetry or invariance in the measured profile.
 This is left for future prospects.
-As a side note, the authors would like to stress that convergence rates correspond to asymptotic limits and long averaging time can be necessary to observe them, especially for low probability events (Bauer et al. \citep{bauer2017convergence}).
+As a side note, the authors would like to stress that convergence rates correspond to asymptotic limits and long averaging time can be necessary to observe them, especially for low probability events (Bauer et al. \cite{bauer2017convergence}).
 
 The authors would like to thank the Slovenian Research Agency for funding the study under the research project P2-0026.
 Data associated with the present paper are available online at \url{https://repo.ijs.si/CFLAG/convergence_rate} under the GNU GPL v3 licence.
