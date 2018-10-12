@@ -36,7 +36,7 @@ for l in flines:
 
 # Plot
 plot(t,err_EX0,'-.',color='g',label=r"${\parallel E_0^X \parallel}^2$")
-plot(t,err_ER,'--',color='r',label=r"${\parallel E_R \parallel}^2$")
+plot(t,err_ER,'--',color='r',label=r"${\parallel E_R^X \parallel}^2$")
 plot([400,10000],[0.01,0.01*4/100],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
 plot([400,10000],[0.01,0.01*4*4/100/100],'-',color='k')
 text(5000,0.001,r"$T^{-1}$")
