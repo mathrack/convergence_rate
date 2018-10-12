@@ -35,7 +35,7 @@ plot(t,Z_conv,'--',color='r',label=r"$Z-Conv$")
 plot(t,Z_diff,'--',color='b',label=r"$Z-Diff$")
 plot([1000,10000],[0.0002,0.0002/10],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
 plot([1000,10000],[0.00002,0.00002/10/10],'-',color='k')
-text(6000,0.00005,r"$T^{-1}$")
+text(4500,0.00007,r"$T^{-1}$")
 text(4000,0.0000002,r"$T^{-2}$")
 
 # Graph settings
