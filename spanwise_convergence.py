@@ -57,7 +57,7 @@ xscale('log')
 yscale('log')
 xlabel(r"$T^+$")
 ylabel(r"Squared residuals")
-legend(bbox_to_anchor=(0.7,0.6),numpoints=1)
+legend(bbox_to_anchor=(0.43,0.45),numpoints=1)
 
 # Save to file
 savefig("spanwise_convergence.png",bbox_inches='tight')

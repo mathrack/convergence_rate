@@ -61,7 +61,7 @@ xscale('log')
 yscale('log')
 xlabel(r"$T^+$")
 ylabel(r"Squared residuals")
-legend(bbox_to_anchor=(0.75,0.95),numpoints=1)
+legend(bbox_to_anchor=(0.38,0.4),numpoints=1)
 
 # Save to file
 savefig("streamwise_convergence.png",bbox_inches='tight')
