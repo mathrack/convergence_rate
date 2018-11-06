@@ -37,8 +37,8 @@ for l in flines:
 # Plot
 plot(t,err_EX0,'-.',color='g',label=r"${\parallel E_0^X \parallel}^2$")
 plot(t,err_ER,'--',color='r',label=r"${\parallel E_R^X \parallel}^2$")
-plot([400,10000],[0.01,0.01*4/100],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
-plot([400,10000],[0.01,0.01*4*4/100/100],'-',color='k')
+plot([400,20000],[0.01,0.01*4/200],'-',color='k',label=r"$\frac{1}{T}$ and $\frac{1}{T^2}$")
+plot([400,20000],[0.01,0.01*4*4/200/200],'-',color='k')
 text(5000,0.001,r"$T^{-1}$")
 text(5000,0.0001,r"$T^{-2}$")
 
@@ -56,7 +56,7 @@ matplotlib.rc('font', size=size)
 matplotlib.rc('axes', labelsize=size_label, titlesize=size)
 matplotlib.rc('legend', fontsize=size_legend, framealpha=framealpha)
 #
-axis([100.,dt*210000,0.000000001,0.02])
+axis([100.,dt*410000,0.0000000001,0.02])
 xscale('log')
 yscale('log')
 xlabel(r"$T^+$")

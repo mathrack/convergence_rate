@@ -188,8 +188,7 @@ The shape and the resolution of the computation is equal to the DNS of Moser et.
 This resolution was recognized as slightly under-resolved DNS in the study by Vreman and Kuerten \cite{vreman}.
 This is not really an issue here as this paper is focused only on statistical uncertainty and not on the numerical accuracy.
 The time step in the DNS is $0.027$ wall-units, and statistics are collected every $10$ time steps.
-$2$ million time steps are performed, so the averaging time is $54000$ wall-units and the effective averaging time, as proposed by Vinuesa et. al. \cite{vinuesa}, is 
-$T^\star = \frac{T u_\tau}{h} ~ \frac{L_X L_Z}{L_{X,min} L_{Z,min}} = 880$, with $L_{X,min} = 6h$ and $L_{Z,min} = 3h$.
+$4$ million time steps are performed, so the averaging time is $108\,000$ wall-units and the effective averaging time, as proposed by Vinuesa et. al. \cite{vinuesa}, is $T^\star = \frac{T u_\tau}{h} ~ \frac{L_X L_Z}{L_{X,min} L_{Z,min}} = 1\,760$, with $L_{X,min} = 6h$ and $L_{Z,min} = 3h$.
 
 \begin{figure}
 \includegraphics[width=0.5\textwidth]{streamwise_convergence.pdf}
@@ -206,28 +205,28 @@ As shown in Figure \ref{fig_x}, the global quantities ${\parallel{E_0^X}\paralle
 As shown in Figure \ref{fig_z}, the squared residuals associated with individual quantities are converging at a rate of $\frac{1}{T}$, while the squared residual associated with the global quantity ${\parallel{E_0^Z}\parallel}^2$ is converging at the faster rate of $\frac{1}{T^2}$.
 
 For the sake of completeness, regressions were performed to extract the convergence rate of the quantities plotted in Figures \ref{fig_x} and \ref{fig_z}.
-The regression was restricted to averaging times longer than $10^4$ samples -- $10^5$ time steps, or $2700$ time units -- to limit transient effects.
+The regression was restricted to averaging times longer than $10^4$ samples -- $10^5$ time steps, or $2\,700$ time units -- to limit transient effects.
 Table \ref{tab_conv_rate} shows that the convergence rate of global quantities is very close to the theoretical prediction.
 Table \ref{tab_conv_rate_2} shows that the individual quantities are also converging at a rate very close to the theoretical prediction (Oliver et al. \cite{oliver}, Billingsley \cite{billingsley2008probability}).
 
 \begin{table}
-\caption{\label{tab_conv_rate}Convergence rate for global quantities, averaging time $T^+>2700$.}
+\caption{\label{tab_conv_rate}Convergence rate for global quantities, averaging time $T^+>2\,700$.}
 \begin{ruledtabular}
 \begin{tabular}{rcccc}
  & ${\parallel{E_0^X}\parallel}^2$ & ${\parallel{E_0^Z}\parallel}^2$ & ${\parallel{E_R^X}\parallel}^2$ & ${\parallel{E_R^Z}\parallel}^2$ \\
 \hline
-Convergence Rate & $T^{-2.05}$ & $T^{-2.24}$ & $T^{-2.06}$ & $T^{-2.24}$ \\
+Convergence Rate & $T^{-1.98}$ & $T^{-2.05}$ & $T^{-1.87}$ & $T^{-2.11}$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}
 
 \begin{table}
-\caption{\label{tab_conv_rate_2}Convergence rate for individual quantities, averaging time $T^+>2700$.}
+\caption{\label{tab_conv_rate_2}Convergence rate for individual quantities, averaging time $T^+>2\,700$.}
 \begin{ruledtabular}
 \begin{tabular}{rcccc}
  & $Z-Conv$ & $Z-diff$ \\
 \hline
-Convergence Rate & $T^{-1.07}$ & $T^{-0.93}$ \\
+Convergence Rate & $T^{-1.22}$ & $T^{-1.11}$ \\
 \end{tabular}
 \end{ruledtabular}
 \end{table}

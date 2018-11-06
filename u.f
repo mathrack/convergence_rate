@@ -27,11 +27,11 @@ C PROCESS MEAN STREAM VELOCITY FIRST
        do i=1,200000
          read(2111,'(512E24.16)') (u(K),K=1,KM)
 C make symmetric
-        do j=1,km/2+1
+         do j=1,km/2+1
           tmp=(u(km+1-j)+u(j))/DBLE(2)
           u(j)=tmp
           u(km+1-j)=tmp
-        enddo
+         enddo
 C second derivative in spectral space
          call ctran(u)
          call chebdz(u,uu,km)
@@ -63,12 +63,113 @@ C integral over wall-normal direction
 
 C PROCESS STREAMWISE HEAT FLUX
          read(2123,'(512E24.16)') (v(K),K=1,KM)
-c make symmetric
-        do j=1,km/2+1
+c make asymmetric
+         do j=1,km/2+1
           tmp=(v(km+1-j)-v(j))/DBLE(2)
           v(j)=-tmp
           v(km+1-j)=tmp
-        enddo
+         enddo
+C first derivative in spectral space
+         call ctran(v)
+         call chebdz(v,uu,km)
+         do k=1,km
+           v(k)=uu(k)
+         enddo
+         call citran(v)
+C integral of over wall-normal direction
+         do k=1,km
+           vs(k)=vs(k)+(v(k)-vs(k))/DBLE(i)
+           tt(k)=vs(k)
+         enddo
+         call ctran(tt)
+         su3=DBLE(0)
+         do j=1,km
+           su3=su3+wait(j)*tt(j)
+         enddo
+         sumv=su3
+         do k=1,km
+           tt(k)=(vs(k)-sumv)**2
+         enddo
+         call ctran(tt)
+         su3=DBLE(0)
+         do j=1,km
+           su3=su3+wait(j)*tt(j)
+         enddo
+         rmsv=su3
+
+C add into time averaging sum
+         do k=1,km
+          w(k)=u(k)-v(k)+DBLE(1)
+          ws(k)=ws(k)+(w(k)-ws(k))/DBLE(i)
+          tt(k)=ws(k)
+         enddo
+         call ctran(tt)
+         su3=DBLE(0)
+         do j=1,km
+           su3=su3+wait(j)*tt(j)
+         enddo
+         sumw=su3
+         do k=1,km
+          tt(k)=(ws(k)-sumw)**2
+         enddo
+         call ctran(tt)
+         su3=DBLE(0)
+         do j=1,km
+           su3=su3+wait(j)*tt(j)
+         enddo
+         rmsw=su3
+         write(3115,'(i8,512E24.16)') i,
+     & sumu**2+rmsu,
+     & sumv**2+rmsv,
+     & sumw**2+rmsw
+       enddo
+
+C PROCESS MEAN STREAM VELOCITY FIRST
+       do i=200001,400000
+         read(2211,'(512E24.16)') (u(K),K=1,KM)
+C make symmetric
+         do j=1,km/2+1
+          tmp=(u(km+1-j)+u(j))/DBLE(2)
+          u(j)=tmp
+          u(km+1-j)=tmp
+         enddo
+C second derivative in spectral space
+         call ctran(u)
+         call chebdz(u,uu,km)
+         call chebdz(uu,u,km)
+         call citran(u)
+         do k=1,km
+           u(k)=u(k)/DBLE(180)
+         enddo
+C integral over wall-normal direction
+         do k=1,km
+           us(k)=us(k)+(u(k)-us(k))/DBLE(i)
+           tt(k)=us(k)
+         enddo
+         call ctran(tt)
+         su3=DBLE(0)
+         do j=1,km
+           su3=su3+wait(j)*tt(j)
+         enddo
+         sumu=su3
+         do k=1,km
+           tt(k)=(us(k)-sumu)**2
+         enddo
+         call ctran(tt)
+         su3=DBLE(0)
+         do j=1,km
+           su3=su3+wait(j)*tt(j)
+         enddo
+         rmsu=su3
+
+C PROCESS STREAMWISE HEAT FLUX
+         read(2223,'(512E24.16)') (v(K),K=1,KM)
+c make asymmetric
+         do j=1,km/2+1
+          tmp=(v(km+1-j)-v(j))/DBLE(2)
+          v(j)=-tmp
+          v(km+1-j)=tmp
+         enddo
 C first derivative in spectral space
          call ctran(v)
          call chebdz(v,uu,km)
@@ -237,4 +338,3 @@ C **********************************************************************
       CALL DFFTW_DESTROY_PLAN(PLAN)
       RETURN
       END
-
